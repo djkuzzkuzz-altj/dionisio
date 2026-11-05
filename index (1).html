@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perfumería Dionisio</title>
+<style>
+:root{--bg:#faf7f2;--card:#fff;--tx:#1c1915;--mu:#6b6459;--gd:#a67c24;--bd:#e6dfd2;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0d0b;--card:#1a1814;--tx:#f3ede1;--mu:#a29a8a;--gd:#d4af5a;--bd:#2c2820;--on:#111}}
+:root[data-theme="dark"]{--bg:#0e0d0b;--card:#1a1814;--tx:#f3ede1;--mu:#a29a8a;--gd:#d4af5a;--bd:#2c2820;--on:#111}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Georgia,"Times New Roman",serif;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header{text-align:center;padding:28px 16px 12px}
+h1{margin:0;font-size:2rem;letter-spacing:.12em;color:var(--gd);font-weight:400;text-transform:uppercase}
+header p{margin:6px 0 0;color:var(--mu);font-style:italic}
+.ship{margin:12px auto;max-width:720px;padding:10px 14px;border:1px solid var(--bd);border-radius:10px;font:.85rem system-ui,sans-serif;color:var(--mu);text-align:center;line-height:1.5}
+.tools{max-width:1000px;margin:0 auto;padding:8px 14px;display:flex;flex-direction:column;gap:10px}
+input,select,textarea{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:1rem system-ui,sans-serif}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.chip{flex:none;padding:7px 14px;border-radius:99px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:.85rem system-ui,sans-serif;cursor:pointer}
+.chip.on{background:var(--gd);color:var(--on);border-color:var(--gd)}
+.grid{max-width:1000px;margin:0 auto;padding:8px 14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.im{aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;position:relative}
+.im img{width:100%;height:100%;object-fit:contain}
+.mono{font-size:2.6rem;color:var(--gd);background:var(--card);position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.bd{padding:10px;display:flex;flex-direction:column;gap:4px;flex:1;font-family:system-ui,sans-serif}
+.br{font-size:.68rem;letter-spacing:.08em;color:var(--gd);text-transform:uppercase}
+.nm{font-size:.92rem;font-weight:600;line-height:1.25}
+.ds{font-size:.78rem;color:var(--mu);line-height:1.35;flex:1}
+.pr{font-size:1.1rem;font-weight:700;margin-top:4px}
+.add{margin-top:6px;padding:9px;border:0;border-radius:9px;background:var(--gd);color:var(--on);font:600 .88rem system-ui,sans-serif;cursor:pointer}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--bd);z-index:5}
+.bar button{width:100%;max-width:600px;display:flex;justify-content:space-between;margin:0 auto;padding:13px 16px;border:0;border-radius:12px;background:var(--gd);color:var(--on);font:700 1rem system-ui,sans-serif;cursor:pointer}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:20;display:none;align-items:flex-end;justify-content:center}
+.ov.show{display:flex}
+.sh{background:var(--bg);width:100%;max-width:600px;max-height:92%;overflow-y:auto;border-radius:18px 18px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));font-family:system-ui,sans-serif}
+.sh h2{margin:0 0 10px;font:400 1.3rem Georgia,serif;color:var(--gd)}
+.ln{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--bd);font-size:.88rem}
+.ln span.t{flex:1}
+.q{display:flex;align-items:center;gap:8px}
+.q button{width:28px;height:28px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:1rem;cursor:pointer}
+.tot{display:flex;justify-content:space-between;font-size:1.15rem;font-weight:700;padding:12px 0}
+.f{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.wa{display:block;text-align:center;padding:14px;border-radius:12px;background:#25d366;color:#08210f;font-weight:700;text-decoration:none;font-size:1rem}
+.wa.off{opacity:.4;pointer-events:none}
+.x{background:none;border:0;color:var(--mu);width:100%;padding:10px;font-size:.9rem;cursor:pointer}
+.em{color:var(--mu);text-align:center;padding:20px 0}
+</style>
+</head>
+<body>
+<header>
+<h1>Perfumería Dionisio</h1>
+<p>Perfumes 100% originales y sellados</p>
+</header>
+<div class="ship">🚚 Envío gratis dentro del 4to anillo en Santa Cruz<br>🇧🇴 Envíos nacionales todos los días</div>
+<div class="tools">
+<input id="q" type="search" placeholder="Buscar perfume o marca…">
+<div class="chips" id="chips"></div>
+</div>
+<main class="grid" id="grid"></main>
+<div class="bar"><button id="open"><span id="cn">Ver pedido (0)</span><span id="ct">Bs 0</span></button></div>
+<div class="ov" id="ov"><div class="sh">
+<h2>Tu pedido</h2>
+<div id="lines"></div>
+<div class="tot"><span>Total</span><span id="tt">Bs 0</span></div>
+<div class="f">
+<input id="nm" placeholder="Tu nombre">
+<select id="zn">
+<option>Santa Cruz, hasta el 4to anillo (envío gratis)</option>
+<option>Santa Cruz, fuera del 4to anillo</option>
+<option>Otro departamento (envío nacional)</option>
+</select>
+<textarea id="ad" rows="2" placeholder="Dirección o ciudad de entrega"></textarea>
+</div>
+<a class="wa off" id="wa" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+<button class="x" id="cl">Seguir comprando</button>
+</div></div>
+<script>
+var WA="59176354902",MK=1.35,IB="https://i.ibb.co/";
+var P=[
+["Afnan","Supremacy Gold","100 ml EDP","Cálido, dulce y sofisticado. Pensado para la noche y ocasiones especiales.",350,"DfC1MCjp/AFNSUPRGLD34-M.png"],
+["Antonio Banderas","Blue Seduction Hombre","200 ml EDT","Oriental fougère con bergamota, menta, cardamomo y fondo ámbar amaderado.",300,"7drwDZT4/ABBS68M.jpg"],
+["Antonio Banderas","Blue Seduction Mujer","200 ml EDT","Fresca y sensual, con notas frutales y acuáticas. Ideal para el día a día.",300,"rKtrZm4V/ABBS67W.jpg"],
+["Armaf","Odyssey Wild One","100 ml EDP","Moderno y versátil, de buena fijación. Va con el trabajo, citas o salidas.",340,"mrqk7x6L/ARODYWO34-M.png"],
+["Armaf","Tres Nuit","100 ml EDP","Verde, cítrico y amaderado. Elegancia fresca para oficina y uso diario.",360,"hFcHW3DV/ARTRES34-M.png"],
+["Aurora Scents","Azure Aurora","100 ml EDP","Fresco, limpio y masculino. Perfecto para el calor y el uso diario.",250,"Gv3L4Lfr/AURAZUR34-M.png"],
+["Aurora Scents","Lord Intense","100 ml EDP","Intenso y elegante, con gran presencia. Para noches y eventos.",240,"spQ9RxLL/AURLORDINT34-M.png"],
+["Aurora Scents","Roadster Intense","100 ml EDP","Fresco y profundo, con aire de perfume de colección. Buena proyección.",250,"hJ1QTYgh/AUROADINT34-M-1.png"],
+["Aurora Scents","Signature Extreme","100 ml EDP","Amaderado, ambarado y especiado. Seductor para citas y salidas nocturnas.",230,"Vcx8B1Xj/AURSIGEXT34-M-01.png"],
+["Aurora Scents","Signature Sport","100 ml EDP","Deportivo y fresco, con un toque elegante. Ideal para el día.",220,"DHsXMy2Z/AURSIGSPO34-M.png"],
+["Bharara","Noble","100 ml EDP","Bergamota, lavanda y cedro con fondo de cuero y ámbar. 6 a 8 horas de duración.",280,"vCKCmVvT/Bharara-Noble.jpg"],
+["Bharara","Reveal","100 ml EDP","Moderno y refinado, con carácter. Para oficina, reuniones y eventos.",280,"d4dMk7tc/foto1.png"],
+["Bharara","Valor","100 ml EDP","Cítricos y especias con fondo de ámbar y cuero. Fuerte y energético.",280,"J1Vfk94/Bharara-Valor.jpg"],
+["Camara","Monarch Man","90 ml EDP","Notas frescas y especiadas con fondo amaderado. Versátil, de día o de noche.",210,"MD90S30P/CAMMON30-M-1.png"],
+["Camara","Vamos Voyage Elixir","100 ml EDP","Especiado y amaderado, con canela, lavanda y ámbar. Gran presencia.",230,"H8RYZzp/foto1.png"],
+["Fragrance World","Canale Di Blue Parfum Intense","100 ml EDP","Fresco, cítrico y amaderado. Elegante para oficina, citas y eventos.",220,"WqyWKvw/FWCDBPINT34-M.png"],
+["Fragrance World","Imperium Intense","100 ml EDP","Salida cítrica brillante y fondo amaderado con presencia masculina.",240,"rK5WsPBS/FWIMPINT34-M.png"],
+["Fragrance World","Invicto Legend","100 ml EDP","Fresco, aromático y amaderado. Buena proyección y duración.",250,"GQHv7PLK/FWINVLEG34-M-01.png"],
+["Fragrance World","La Uno Forever Blue","100 ml EDP","Cítrico y amaderado, limpio y moderno. Va muy bien con el clima cruceño.",240,"67sqPgLy/FWLUFORBL34-M-1.png"],
+["Fragrance World","Monte Leone Legende Blue","100 ml EDP","Fresco, aromático y amaderado. Elegante para el trabajo o salidas casuales.",240,"XrpK26jc/foto1.png"]
+].map(function(a,i){return{id:i,b:a[0],n:a[1],s:a[2],d:a[3],p:Math.round(a[4]*MK),i:IB+a[5]}});
+var cart={},brand="Todos",term="";
+function $(i){return document.getElementById(i)}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function chips(){
+var bs=["Todos"];P.forEach(function(p){if(bs.indexOf(p.b)<0)bs.push(p.b)});
+$("chips").innerHTML=bs.map(function(b){return '<button class="chip'+(b==brand?' on':'')+'" data-b="'+esc(b)+'">'+esc(b)+'</button>'}).join("");
+}
+function grid(){
+var l=P.filter(function(p){return(brand=="Todos"||p.b==brand)&&(p.b+" "+p.n).toLowerCase().indexOf(term)>-1});
+$("grid").innerHTML=l.length?l.map(function(p){return '<div class="card"><div class="im"><span class="mono">'+esc(p.b[0])+'</span><img src="'+p.i+'" alt="'+esc(p.n)+'" loading="lazy" onerror="this.remove()"></div><div class="bd"><div class="br">'+esc(p.b)+'</div><div class="nm">'+esc(p.n)+' · '+p.s+'</div><div class="ds">'+esc(p.d)+'</div><div class="pr">Bs '+p.p+'</div><button class="add" data-id="'+p.id+'">Agregar</button></div></div>'}).join(""):'<p class="em">No encontramos ese perfume.</p>';
+}
+function tot(){var n=0,t=0;P.forEach(function(p){var q=cart[p.id]||0;n+=q;t+=q*p.p});return{n:n,t:t}}
+function upd(){
+var T=tot();$("cn").textContent="Ver pedido ("+T.n+")";$("ct").textContent="Bs "+T.t;$("tt").textContent="Bs "+T.t;
+var L=P.filter(function(p){return cart[p.id]});
+$("lines").innerHTML=L.length?L.map(function(p){return '<div class="ln"><span class="t">'+esc(p.b+" "+p.n)+'<br><small>Bs '+p.p+' c/u</small></span><span class="q"><button data-m="'+p.id+'">−</button>'+cart[p.id]+'<button data-p="'+p.id+'">+</button></span></div>'}).join(""):'<p class="em">Todavía no agregaste perfumes.</p>';
+var m="Hola Perfumería Dionisio 👋, quiero hacer este pedido:\n\n"+L.map(function(p){return "• "+cart[p.id]+" x "+p.b+" "+p.n+" ("+p.s+") = Bs "+cart[p.id]*p.p}).join("\n")+"\n\nTotal: Bs "+T.t+"\nNombre: "+$("nm").value+"\nZona: "+$("zn").value+"\nDirección: "+$("ad").value;
+var a=$("wa");a.href="https://wa.me/"+WA+"?text="+encodeURIComponent(m);a.className="wa"+(T.n?"":" off");
+}
+document.addEventListener("click",function(e){
+var t=e.target;
+if(t.dataset.b){brand=t.dataset.b;chips();grid()}
+if(t.dataset.id){cart[t.dataset.id]=(cart[t.dataset.id]||0)+1;upd()}
+if(t.dataset.p){cart[t.dataset.p]++;upd()}
+if(t.dataset.m){cart[t.dataset.m]--;if(!cart[t.dataset.m])delete cart[t.dataset.m];upd()}
+});
+$("q").oninput=function(){term=this.value.toLowerCase();grid()};
+$("open").onclick=function(){$("ov").classList.add("show")};
+$("cl").onclick=function(){$("ov").classList.remove("show")};
+$("ov").onclick=function(e){if(e.target==this)this.classList.remove("show")};
+["nm","zn","ad"].forEach(function(i){$(i).oninput=upd;$(i).onchange=upd});
+chips();grid();upd();
+</script>
+</body>
+</html>
