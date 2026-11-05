@@ -24,7 +24,7 @@ input,select,textarea{width:100%;padding:11px 12px;border-radius:10px;border:1px
 .card{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
 .im{aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;position:relative}
 .im img{width:100%;height:100%;object-fit:contain}
-.mono{font-size:2.6rem;color:var(--gd);background:var(--card);position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.mono{font-size:2.6rem;color:var(--gd);background:var(--card);position:absolute;inset:0;display:none;align-items:center;justify-content:center}
 .bd{padding:10px;display:flex;flex-direction:column;gap:4px;flex:1;font-family:system-ui,sans-serif}
 .br{font-size:.68rem;letter-spacing:.08em;color:var(--gd);text-transform:uppercase}
 .nm{font-size:.92rem;font-weight:600;line-height:1.25}
@@ -110,7 +110,7 @@ $("chips").innerHTML=bs.map(function(b){return '<button class="chip'+(b==brand?'
 }
 function grid(){
 var l=P.filter(function(p){return(brand=="Todos"||p.b==brand)&&(p.b+" "+p.n).toLowerCase().indexOf(term)>-1});
-$("grid").innerHTML=l.length?l.map(function(p){return '<div class="card"><div class="im"><span class="mono">'+esc(p.b[0])+'</span><img src="'+p.i+'" alt="'+esc(p.n)+'" loading="lazy" onerror="this.remove()"></div><div class="bd"><div class="br">'+esc(p.b)+'</div><div class="nm">'+esc(p.n)+' · '+p.s+'</div><div class="ds">'+esc(p.d)+'</div><div class="pr">Bs '+p.p+'</div><button class="add" data-id="'+p.id+'">Agregar</button></div></div>'}).join(""):'<p class="em">No encontramos ese perfume.</p>';
+$("grid").innerHTML=l.length?l.map(function(p){return '<div class="card"><div class="im"><span class="mono">'+esc(p.b[0])+'</span><img src="'+p.i+'" alt="'+esc(p.n)+'" loading="lazy" onerror="this.previousSibling.style.display='flex';this.remove()"></div><div class="bd"><div class="br">'+esc(p.b)+'</div><div class="nm">'+esc(p.n)+' · '+p.s+'</div><div class="ds">'+esc(p.d)+'</div><div class="pr">Bs '+p.p+'</div><button class="add" data-id="'+p.id+'">Agregar</button></div></div>'}).join(""):'<p class="em">No encontramos ese perfume.</p>';
 }
 function tot(){var n=0,t=0;P.forEach(function(p){var q=cart[p.id]||0;n+=q;t+=q*p.p});return{n:n,t:t}}
 function upd(){
